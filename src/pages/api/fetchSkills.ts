@@ -1,0 +1,25 @@
+import { client } from "./sanityClient";
+
+import type { skillType } from "../../types/skillType";
+
+const fetchSkills = async () => {
+    const fetchedSkills: skillType[] = await client.fetch(`*[_type == "skill" && isActual] | order(skill asc){
+            skill,
+            image { alt, caption,
+                "url": asset->url,
+                "aspect": asset->metadata.dimensions.aspectRatio,
+                "width": asset->metadata.dimensions.width,
+                "height": asset->metadata.dimensions.height,
+            },    
+    }`);
+
+    return fetchedSkills.map((fetchedSkills: skillType) => ({
+        ...fetchedSkills,
+        image: {
+            ...fetchedSkills.image,
+            caption: fetchedSkills.image.caption || '',
+        }
+    }));
+};
+
+export { fetchSkills };
