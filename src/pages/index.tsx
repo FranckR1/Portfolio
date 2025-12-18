@@ -1,5 +1,7 @@
 import { GetStaticProps } from 'next';
 
+import Skills from '../components/Skill';
+
 import { fetchSocials } from '../pages/api/fetchSocials';
 import { fetchSkills } from '../pages/api/fetchSkills';
 import { fetchProfile } from './api/fetchProfile';
@@ -20,7 +22,6 @@ type typeProps = {
 export default function Home({ skills, socials, profile, experiences }: typeProps) {
     
     console.log("Données reçues dans le composant Home socials:", socials); 
-    console.log("Données reçues dans le composant Home skills:", skills); 
     console.log("Données reçues dans le composant Home profil:", profile); 
     console.log("Données reçues dans le composant Home experience:", experiences); 
 
@@ -39,18 +40,9 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
                 <p>Aucune donnée récupérée.</p>
             )}
         </div>
-        <div>
-            <h2>Test de Données Skills</h2>
-            {skills.length > 0 ? (
-                <ul>
-                    {skills.map((skill) => (
-                        <li key={skill.skill}>{skill.skill}</li>
-                    ))}
-                </ul>
-            ) : (
-                <p>Aucune donnée récupérée.</p>
-            )}
-        </div>
+        <section>
+            <Skills skills={skills} />
+        </section>
         <div>
             <h2>Test données du profil</h2>
             <p>{profile.firstname}</p>
