@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import { useState, useRef } from 'react';
 
 import Skills from '../components/Skill';
 import NavBar from '../components/NavBar';
@@ -12,6 +13,7 @@ import type { skillType } from '../types/skillType';
 import type { socialType } from '../types/socialType';
 import type { profileType } from '../types/profileType';
 import type { experienceType } from '../types/experienceType';
+import type { refName, refType } from '../types/refType';
 
 type typeProps = {
     skills: skillType[];
@@ -25,6 +27,14 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
     console.log("Données reçues dans le composant Home socials:", socials); 
     console.log("Données reçues dans le composant Home profil:", profile); 
     console.log("Données reçues dans le composant Home experience:", experiences);
+
+    const [refMe, setRefMe] = useState<HTMLElement | null>(null);
+    const [refs, setRefs] = useState<refType>({
+        "A propos": null,
+        "Projets": null,
+        "Expériences": null,
+        "Compétences": null,
+    });
 
     return (
     <>
@@ -42,7 +52,7 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
             )}
         </div>
         <header>
-            <NavBar />
+            <NavBar socials={socials} refHome={refMe} refs={refs} />
         </header>
         <section>
             <Skills skills={skills} />
