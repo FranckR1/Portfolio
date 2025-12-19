@@ -39,7 +39,9 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
     return (
     <>
         <head>
-
+            <title>Franck ROY - Portfolio</title>
+            <meta name="description" content='Portfolio de Franck Roy. Vous trouverez ici mes expériences et mes projets.'/>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
         </head>
 
         <div>
