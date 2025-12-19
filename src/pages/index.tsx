@@ -38,43 +38,22 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
 
     return (
     <>
+        <head>
+
+        </head>
+
         <div>
-            <h1>Page d'Accueil</h1>
-            <h2>Test de Données Socials</h2>
-            {socials.length > 0 ? (
-                <ul>
-                    {socials.map((social) => (
-                        <li key={social.url}>{social.name} : {social.url}</li>
-                    ))}
-                </ul>
-            ) : (
-                <p>Aucune donnée récupérée.</p>
-            )}
+            <header>
+                <NavBar socials={socials} refHome={refMe} refs={refs} />
+            </header>
+            <main>
+                <section>
+                    <Skills skills={skills} />
+                </section>
+            </main>
+            
         </div>
-        <header>
-            <NavBar socials={socials} refHome={refMe} refs={refs} />
-        </header>
-        <section>
-            <Skills skills={skills} />
-        </section>
-        <div>
-            <h2>Test données du profil</h2>
-            <p>{profile.firstname}</p>
-            <p>{profile.lastname}</p>
-            <p>{profile.email}</p>
-        </div>
-        <div>
-            <h2>Test données experience</h2>
-            {experiences.length > 0 ? (
-                <ul>
-                    {experiences.map((experience) => (
-                        <li key={experience.company}>{experience.jobTitle}</li>
-                    ))}
-                </ul>
-            ) : (
-                <p>Aucune donnée récupérée.</p>
-            )}
-        </div>
+        
     </>
     );
 }
@@ -92,7 +71,7 @@ export const getStaticProps: GetStaticProps<typeProps> = async () => {
   let experiences: experienceType[];
 
   [
-    skills,
+    skills, 
     socials,
     profile,
     experiences,
