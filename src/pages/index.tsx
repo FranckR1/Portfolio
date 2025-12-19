@@ -1,6 +1,8 @@
 import { GetStaticProps } from 'next';
+import { useState, useRef } from 'react';
 
 import Skills from '../components/Skill';
+import NavBar from '../components/NavBar';
 
 import { fetchSocials } from '../pages/api/fetchSocials';
 import { fetchSkills } from '../pages/api/fetchSkills';
@@ -11,6 +13,7 @@ import type { skillType } from '../types/skillType';
 import type { socialType } from '../types/socialType';
 import type { profileType } from '../types/profileType';
 import type { experienceType } from '../types/experienceType';
+import type { refName, refType } from '../types/refType';
 
 type typeProps = {
     skills: skillType[];
@@ -23,44 +26,34 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
     
     console.log("Données reçues dans le composant Home socials:", socials); 
     console.log("Données reçues dans le composant Home profil:", profile); 
-    console.log("Données reçues dans le composant Home experience:", experiences); 
+    console.log("Données reçues dans le composant Home experience:", experiences);
+
+    const [refMe, setRefMe] = useState<HTMLElement | null>(null);
+    const [refs, setRefs] = useState<refType>({
+        "A propos": null,
+        "Projets": null,
+        "Expériences": null,
+        "Compétences": null,
+    });
 
     return (
     <>
-      <div>
-            <h1>Page d'Accueil</h1>
-            <h2>Test de Données Socials</h2>
-            {socials.length > 0 ? (
-                <ul>
-                    {socials.map((social) => (
-                        <li key={social.url}>{social.name} : {social.url}</li>
-                    ))}
-                </ul>
-            ) : (
-                <p>Aucune donnée récupérée.</p>
-            )}
-        </div>
-        <section>
-            <Skills skills={skills} />
-        </section>
+        <head>
+
+        </head>
+
         <div>
-            <h2>Test données du profil</h2>
-            <p>{profile.firstname}</p>
-            <p>{profile.lastname}</p>
-            <p>{profile.email}</p>
+            <header>
+                <NavBar socials={socials} refHome={refMe} refs={refs} />
+            </header>
+            <main>
+                <section>
+                    <Skills skills={skills} />
+                </section>
+            </main>
+            
         </div>
-        <div>
-            <h2>Test données experience</h2>
-            {experiences.length > 0 ? (
-                <ul>
-                    {experiences.map((experience) => (
-                        <li key={experience.company}>{experience.jobTitle}</li>
-                    ))}
-                </ul>
-            ) : (
-                <p>Aucune donnée récupérée.</p>
-            )}
-        </div>
+        
     </>
     );
 }
@@ -78,7 +71,7 @@ export const getStaticProps: GetStaticProps<typeProps> = async () => {
   let experiences: experienceType[];
 
   [
-    skills,
+    skills, 
     socials,
     profile,
     experiences,
