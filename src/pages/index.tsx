@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 
 import Skills from '../components/Skill';
 import NavBar from '../components/NavBar';
+import Profile from '../components/Profile';
 
 import { fetchSocials } from '../pages/api/fetchSocials';
 import { fetchSkills } from '../pages/api/fetchSkills';
@@ -23,10 +24,6 @@ type typeProps = {
 }
 
 export default function Home({ skills, socials, profile, experiences }: typeProps) {
-    
-    console.log("Données reçues dans le composant Home socials:", socials); 
-    console.log("Données reçues dans le composant Home profil:", profile); 
-    console.log("Données reçues dans le composant Home experience:", experiences);
 
     const [refMe, setRefMe] = useState<HTMLElement | null>(null);
     const [refs, setRefs] = useState<refType>({
@@ -39,7 +36,9 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
     return (
     <>
         <head>
-
+            <title>Franck ROY - Portfolio</title>
+            <meta name="description" content='Portfolio de Franck Roy. Vous trouverez ici mes expériences et mes projets.'/>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
         </head>
 
         <div>
@@ -47,9 +46,16 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
                 <NavBar socials={socials} refHome={refMe} refs={refs} />
             </header>
             <main>
-                <section>
+                {/* <section id='profile' ref={refMe ? undefined : ref => ref && setRefMe(ref)}>
+                    <Profile
+                        picture={profile.picture}
+                        pictureGit={profile.pictureGit}
+                        socials={socials} 
+                    />
+                </section> */}
+                {/* <section>
                     <Skills skills={skills} />
-                </section>
+                </section> */}
             </main>
             
         </div>
