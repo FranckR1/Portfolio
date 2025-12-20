@@ -23,10 +23,6 @@ type typeProps = {
 }
 
 export default function Home({ skills, socials, profile, experiences }: typeProps) {
-    
-    console.log("Données reçues dans le composant Home socials:", socials); 
-    console.log("Données reçues dans le composant Home profil:", profile); 
-    console.log("Données reçues dans le composant Home experience:", experiences);
 
     const [refMe, setRefMe] = useState<HTMLElement | null>(null);
     const [refs, setRefs] = useState<refType>({
