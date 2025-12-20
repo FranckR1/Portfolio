@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 
 import Skills from '../components/Skill';
 import NavBar from '../components/NavBar';
+import Profile from '../components/Profile';
 
 import { fetchSocials } from '../pages/api/fetchSocials';
 import { fetchSkills } from '../pages/api/fetchSkills';
@@ -45,9 +46,16 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
                 <NavBar socials={socials} refHome={refMe} refs={refs} />
             </header>
             <main>
-                <section>
+                {/* <section id='profile' ref={refMe ? undefined : ref => ref && setRefMe(ref)}>
+                    <Profile
+                        picture={profile.picture}
+                        pictureGit={profile.pictureGit}
+                        socials={socials} 
+                    />
+                </section> */}
+                {/* <section>
                     <Skills skills={skills} />
-                </section>
+                </section> */}
             </main>
             
         </div>

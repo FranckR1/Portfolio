@@ -11,7 +11,7 @@ import type { refName, refType } from '../types/refType';
 type socialIconHashType = Record<string, IconDefinition>;
 
 const socialIconHash: socialIconHashType = {
-    'Github': faGithub,
+    'GitHub': faGithub,
     'Linkedin': faLinkedin,
 };
 
