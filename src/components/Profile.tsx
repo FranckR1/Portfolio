@@ -14,7 +14,7 @@ const Profile = ({ picture, pictureGit, socials}: propsType) => {
 
     const [ isFlip, setIsFlip ] = useState(false);
 
-    const github = socials.find(social => /github/i.test(social.name))[0];
+    const github = socials.find(social => /github/i.test(social.name));
 
     const flipCard = () => {
         github && setIsFlip(!isFlip);
