@@ -1,0 +1,41 @@
+.skill {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.skillName {
+    width: calc(100% + 1px);
+    height: calc(100% + 1px);
+    position: absolute;
+    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    opacity: 0;
+    padding: 5px;
+    border-radius: 50%;
+    z-index: 1;
+    transition: opacity 0.2s;
+}
+
+.skillName h3 {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    overflow-wrap: break-word;
+}
+
+.skill:hover .skillName {
+    opacity: 0.8;
+}
