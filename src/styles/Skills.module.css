@@ -1,0 +1,42 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.skillsContainer {
+  min-width: 100%;
+  max-width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.skillsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.skills {
+  width: min(80%, 700px);
+  max-height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.skill {
+  width: clamp(50px, 20vmin, 100px);
+  height: clamp(50px, 20vmin, 100px);
+}

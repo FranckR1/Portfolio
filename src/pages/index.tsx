@@ -54,9 +54,9 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
                         socials={socials} 
                     />
                 </section> */}
-                {/* <section>
+                <section className={styles.section}>
                     <Skills skills={skills} />
-                </section> */}
+                </section>
             </main>
             
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import styles from '../styles/Skills.module.css';
 import Skill from './elements/Skill';
 
 import type { skillType } from '../types/skillType';
@@ -10,10 +10,10 @@ type propsType = {
 
 const Skills = ({ skills }: propsType) => {
     return (
-        <div>
+        <div className={styles.skillsContainer}>
             {skills.map((skill, i) => {
                 return (
-                    <Skill skill={skill} maxSize={100} />
+                    <Skill key={i} skill={skill} maxSize={100} />
                 )
             })}
         </div>

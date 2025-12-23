@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import styles from '../../styles/Skill.module.css';
 
 import type { skillType } from '../../types/skillType';
 
@@ -10,15 +11,16 @@ type propsType = {
 
 const Skill = ({ skill, maxSize = 60 }: propsType) => {
     return (
-        <div>
+        <div className={styles.skill}>
             <Image
                 style={{ objectFit: "contain", padding: "20%" }}
                 src={skill.image.url}
-                alt={skill.image.alt}
-                fill
+                alt={skill.image.alt || "Image description"}
+                width={maxSize}
+                height={maxSize}
                 sizes={`${maxSize}px`}  
             />
-            <div>
+            <div className={styles.skillName}>
                 <h3>{skill.skill}</h3>
             </div>
         </div>
