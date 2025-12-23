@@ -1,0 +1,25 @@
+.imageContainer {
+    position: relative;
+    min-height: max(50%, 300px);
+    width: clamp(150px, 80%, 450px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.description {
+    width: 100%;
+    font-size: 20px;
+    text-align: justify;
+    color: black;
+}
+
+.description p {
+    margin-top: 1rem;
+}
+
+.description li {
+    margin-left: 1rem;
+}

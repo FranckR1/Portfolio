@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css';
 import Skills from '../components/Skill';
 import NavBar from '../components/NavBar';
 import Profile from '../components/Profile';
+import AboutMe from '../components/AboutMe';
 
 import { fetchSocials } from '../pages/api/fetchSocials';
 import { fetchSkills } from '../pages/api/fetchSkills';
@@ -54,6 +55,9 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
                         socials={socials} 
                     />
                 </section> */}
+                <section className={styles.section}>
+                    <AboutMe description={profile.description} pictureAboutMe={profile.pictureAboutMe}/>
+                </section>
                 <section className={styles.section}>
                     <Skills skills={skills} />
                 </section>
