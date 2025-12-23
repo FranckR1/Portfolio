@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import styles from '../styles/NavBar.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faBars, faX } from '@fortawesome/free-solid-svg-icons';
@@ -28,7 +29,7 @@ type propsType = {
 
 const NavBar = ({ socials, refHome, refs}: propsType) => {
 
-    const [showMenu, setShowMenu] = useState<boolean>(false);
+    const [showMenu, setShowMenu] = useState(false);
 
     const validKeys: refName[] = [];
     Object.keys(refs).forEach(key => isRefName(key) && validKeys.push(key));
@@ -41,22 +42,22 @@ const NavBar = ({ socials, refHome, refs}: propsType) => {
     }
 
     return (
-        <nav>
-            <FontAwesomeIcon onClick={() => scrollTo(refHome)} icon={faHome} />
+        <nav className={styles.container}>
+            <FontAwesomeIcon onClick={() => scrollTo(refHome)} icon={faHome} className={styles.homeIcon}/>
 
-            <ul>
+            <ul className={styles.socials}>
                 {socials.map((social, i) => {
                     return (
                         <li key={i}>
                             <a href={social.url}>
-                                <FontAwesomeIcon icon={socialIconHash[social.name]} />
+                                <FontAwesomeIcon icon={socialIconHash[social.name]} className={styles.socialIcon}/>
                             </a>
                         </li>
                     )
                 })}
             </ul>
 
-            <ul>
+            <ul className={`${styles.menuSection} ${showMenu && styles.open}`}>
                 {validKeys.map((key, i) => {
                     return (
                         <li key={i} onClick={() => scrollTo(refs[key])}>
@@ -69,6 +70,7 @@ const NavBar = ({ socials, refHome, refs}: propsType) => {
             <FontAwesomeIcon 
                 icon={showMenu ? faX : faBars}
                 onClick={handleShowMenu}
+                className={`${styles.menuIcon} ${showMenu && styles.open}`}
             />
 
         </nav>
