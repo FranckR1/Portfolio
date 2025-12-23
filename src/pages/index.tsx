@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next';
 import { useState, useRef } from 'react';
+import styles from '../styles/Home.module.css';
 
 import Skills from '../components/Skill';
 import NavBar from '../components/NavBar';
@@ -41,8 +42,8 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
             <meta name="viewport" content="width=device-width, initial-scale=1" />
         </head>
 
-        <div>
-            <header>
+        <div className={styles.container}>
+            <header className={styles.header}>
                 <NavBar socials={socials} refHome={refMe} refs={refs} />
             </header>
             <main>
