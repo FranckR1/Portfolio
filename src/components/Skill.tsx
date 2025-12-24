@@ -10,12 +10,21 @@ type propsType = {
 
 const Skills = ({ skills }: propsType) => {
     return (
-        <div className={styles.skillsContainer}>
-            {skills.map((skill, i) => {
-                return (
-                    <Skill key={i} skill={skill} maxSize={100} />
-                )
-            })}
+        <div className={styles.container}>
+            <h2>
+                Compétences
+            </h2>
+            <div className={styles.skillsContainer}>
+                <div className={styles.skills}>
+                    {skills.map((skill, i) => {
+                        return (
+                            <div className={styles.skill}>
+                                <Skill key={i} skill={skill} maxSize={100} />
+                            </div>
+                        )
+                    })}
+                </div>
+        </div>
         </div>
     )
 }

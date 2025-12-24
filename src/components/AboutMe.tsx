@@ -13,20 +13,27 @@ type propsType = {
 const AboutMe = ({ description, pictureAboutMe }: propsType) => {
     return (
         <>
-            <div className={styles.imageContainer}>
-                <Image 
-                    style={{ objectFit: "cover" }}
-                    className={styles.image}
-                    src={pictureAboutMe.url}
-                    alt={pictureAboutMe.alt || 'Image'}
-                    fill={true}
-                    sizes="450px"
-                    priority={true}
-                />
+        <div className={styles.container}>
+            <h2>
+                A propos
+            </h2>
+            <div className={styles.aboutMeContainer}>
+                <div className={styles.imageContainer}>
+                    <Image 
+                        style={{ objectFit: "cover" }}
+                        className={styles.image}
+                        src={pictureAboutMe.url}
+                        alt={pictureAboutMe.alt || 'Image'}
+                        fill={true}
+                        sizes="450px"
+                        priority={true}
+                    />
+                </div>
+                <div className={styles.description}>
+                    <PortableText value={description}/>
+                </div>
             </div>
-            <div className={styles.description}>
-                <PortableText value={description}/>
-            </div>
+        </div>
         </>
     )
 }

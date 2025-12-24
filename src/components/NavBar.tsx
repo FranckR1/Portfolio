@@ -49,7 +49,7 @@ const NavBar = ({ socials, refHome, refs}: propsType) => {
                 {socials.map((social, i) => {
                     return (
                         <li key={i}>
-                            <a href={social.url}>
+                            <a href={social.url} target="_blank">
                                 <FontAwesomeIcon icon={socialIconHash[social.name]} className={styles.socialIcon}/>
                             </a>
                         </li>

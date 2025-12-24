@@ -47,7 +47,7 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
             <header className={styles.header}>
                 <NavBar socials={socials} refHome={refMe} refs={refs} />
             </header>
-            <main>
+            <main className={styles.main}>
                 {/* <section id='profile' ref={refMe ? undefined : ref => ref && setRefMe(ref)}>
                     <Profile
                         picture={profile.picture}
