@@ -35,6 +35,10 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
         "Compétences": null,
     });
 
+    const handleSetRefs = (key: refName, ref: (HTMLElement | null)) => {
+    if (ref && !refs[key]) setRefs({ ...refs, [key]: ref })
+  }
+
     return (
     <>
         <head>
@@ -55,10 +59,10 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
                         socials={socials} 
                     />
                 </section> */}
-                <section className={styles.section}>
+                <section ref={ref => handleSetRefs("A propos", ref)} className={styles.section}>
                     <AboutMe description={profile.description} pictureAboutMe={profile.pictureAboutMe}/>
                 </section>
-                <section className={styles.section}>
+                <section ref={ref => handleSetRefs("Compétences", ref)} className={styles.section}>
                     <Skills skills={skills} />
                 </section>
             </main>
