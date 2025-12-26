@@ -52,13 +52,12 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
                 <NavBar socials={socials} refHome={refMe} refs={refs} />
             </header>
             <main className={styles.main}>
-                {/* <section id='profile' ref={refMe ? undefined : ref => ref && setRefMe(ref)}>
+                <section id='profile' ref={refMe ? undefined : ref => ref && setRefMe(ref)} className={styles.section}>
                     <Profile
                         picture={profile.picture}
-                        pictureGit={profile.pictureGit}
                         socials={socials} 
                     />
-                </section> */}
+                </section>
                 <section ref={ref => handleSetRefs("A propos", ref)} className={styles.section}>
                     <AboutMe description={profile.description} pictureAboutMe={profile.pictureAboutMe}/>
                 </section>

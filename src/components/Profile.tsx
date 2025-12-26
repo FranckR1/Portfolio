@@ -1,61 +1,59 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-
+import styles from '../styles/Profile.module.css';
 import type { imageType } from '../types/imageType';
 import type { socialType } from '../types/socialType';
 
 type propsType = {
     picture: imageType;
-    pictureGit: imageType;
     socials: socialType[];
 }
 
-const Profile = ({ picture, pictureGit, socials}: propsType) => {
-
-    const [ isFlip, setIsFlip ] = useState(false);
+const Profile = ({ picture, socials }: propsType) => {
 
     const github = socials.find(social => /github/i.test(social.name));
 
-    const flipCard = () => {
-        github && setIsFlip(!isFlip);
-    }
-
     return (
-        <div>
-            <div>
-                <div>
-                    <Image
-                        style={{ objectFit: "cover" }}
-                        src={picture.url}
-                        alt={picture.alt}
-                        fill={true}
-                        sizes="(max-width: 788px) 315px ,(max-width: 1100px) 450px, 450px"
-                        priority={true}
-                    />
-                </div>
-                {github && <a href={github.url}>
-                    <Image
-                        style={{ objectFit: "cover" }}
-                        src={pictureGit.url}
-                        alt={pictureGit.alt}
-                        fill={true}
-                        sizes="(max-width: 788px) 315px ,(max-width: 1100px) 450px, 450px"
-                        priority={true}
-                    />
-                </a>}
-                {github && <div>
-                    <Image
-                        style={{ objectFit: "cover" }}
-                        src={github.image.url}
-                        alt={github.image.alt}
-                        fill={true}
-                        sizes="80px"
-                    />
-                </div>}
-                <div>
-                    <h1>
+        <div className={styles.container}>
+            <div className={styles.profileWrapper}>
+                {github ? (
+                    <a href={github.url} className={styles.imageContainer} target="_blank">
+                        <Image
+                            style={{ objectFit: "cover" }}
+                            src={picture.url}
+                            alt={picture.alt || 'Image'}
+                            fill={true}
+                            sizes="(max-width: 788px) 315px, 450px"
+                            priority={true}
+                        />
+                        <div className={styles.overlay}>
+                            <Image 
+                                src={github.image.url} 
+                                alt={github.image.url} 
+                                width={50} 
+                                height={50} 
+                                style={{ borderRadius: "50%" }}
+                            />
+                            <span>GitHub</span>
+                        </div>
+                    </a>
+                ) : (
+                    <div className={styles.imageContainer}>
+                        <Image
+                            style={{ objectFit: "cover" }}
+                            src={picture.url}
+                            alt={picture.alt || 'Image'}
+                            fill={true}
+                            sizes="(max-width: 788px) 315px, 450px"
+                            priority={true}
+                        />
+                    </div>
+                )}
+
+                <div className={styles.introContainer}>
+                    <h1 className={styles.name}>
                         Franck ROY
-                        <span>
+                        <span className={styles.job}>
                             Développeur Full Stack Junior
                         </span>
                     </h1>
@@ -65,4 +63,4 @@ const Profile = ({ picture, pictureGit, socials}: propsType) => {
     )
 };
 
-export default Profile; 
+export default Profile;
