@@ -35,6 +35,10 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
         "Compétences": null,
     });
 
+    const handleSetRefs = (key: refName, ref: (HTMLElement | null)) => {
+    if (ref && !refs[key]) setRefs({ ...refs, [key]: ref })
+  }
+
     return (
     <>
         <head>
@@ -48,17 +52,16 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
                 <NavBar socials={socials} refHome={refMe} refs={refs} />
             </header>
             <main className={styles.main}>
-                {/* <section id='profile' ref={refMe ? undefined : ref => ref && setRefMe(ref)}>
+                <section id='profile' ref={refMe ? undefined : ref => ref && setRefMe(ref)} className={styles.section}>
                     <Profile
                         picture={profile.picture}
-                        pictureGit={profile.pictureGit}
                         socials={socials} 
                     />
-                </section> */}
-                <section className={styles.section}>
+                </section>
+                <section ref={ref => handleSetRefs("A propos", ref)} className={styles.section}>
                     <AboutMe description={profile.description} pictureAboutMe={profile.pictureAboutMe}/>
                 </section>
-                <section className={styles.section}>
+                <section ref={ref => handleSetRefs("Compétences", ref)} className={styles.section}>
                     <Skills skills={skills} />
                 </section>
             </main>
