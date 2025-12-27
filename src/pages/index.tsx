@@ -2,6 +2,8 @@ import { GetStaticProps } from 'next';
 import { useState, useRef } from 'react';
 import styles from '../styles/Home.module.css';
 
+import Head from 'next/head';
+
 import Skills from '../components/Skill';
 import NavBar from '../components/NavBar';
 import Profile from '../components/Profile';
@@ -41,11 +43,12 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
 
     return (
     <>
-        <head>
+        <Head>
             <title>Franck ROY - Portfolio</title>
             <meta name="description" content='Portfolio de Franck Roy. Vous trouverez ici mes expériences et mes projets.'/>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
-        </head>
+            <link rel="icon" href="/next.svg" />
+        </Head>
 
         <div className={styles.container}>
             <header className={styles.header}>
