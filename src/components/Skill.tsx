@@ -18,8 +18,8 @@ const Skills = ({ skills }: propsType) => {
                 <div className={styles.skills}>
                     {skills.map((skill, i) => {
                         return (
-                            <div className={styles.skill}>
-                                <Skill key={i} skill={skill} maxSize={100} />
+                            <div key={i} className={styles.skill}>
+                                <Skill skill={skill} maxSize={100} />
                             </div>
                         )
                     })}
