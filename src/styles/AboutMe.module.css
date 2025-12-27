@@ -12,8 +12,8 @@
 .description {
     width: 100%;
     font-size: 20px;
-    text-align: justify;
-    color: black;
+    text-align: center;
+    color: white;
 }
 
 .description p {
