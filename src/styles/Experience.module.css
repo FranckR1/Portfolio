@@ -28,3 +28,61 @@
     padding: 10px;
     border-radius: 10px;
 }
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.title {
+    font-size: max(20px, 3vmin);
+    text-align: center;
+}
+
+.company {
+    font-size: max(20px, 3vmin);
+    text-align: center;
+    color: var(--tertiary);
+}
+
+.dates {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: max(14px, 2vmin);
+}
+
+.skills {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.skill {
+    width: 60px;
+    height: 60px;
+}
+
+.description {
+    width: 100%;
+    font-size: 16px;
+    text-align: justify;
+    color: var(--foreground);
+}
+
+.description p {
+    margin-top: 1rem;
+}
+
+.description li {
+    margin-left: 1rem;
+}
