@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import styles from '../../styles/Experience.module.css';
 import Image from 'next/image';
 import Skill from './Skill';
 import { PortableText } from 'next-sanity';
@@ -32,9 +33,10 @@ const Experience = ({ experience }: propsType) => {
     }, [startDate, endDate]);
 
     return (
-        <div>
-            <div>
+        <div className={styles.container}>
+            <div className={styles.imageContainer}>
                 <Image
+                    className={styles.image}
                     style={{ objectFit: "contain" }}
                     src={logo.url}
                     alt={logo.alt}

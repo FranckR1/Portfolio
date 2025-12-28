@@ -1,0 +1,30 @@
+.container {
+    width: min(100%, 700px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+    scrollbar-width: none;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+  
+.imageContainer {
+    position: relative;
+    width: clamp(100px, 90%, 600px);
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.image {
+    padding: 10px;
+    border-radius: 10px;
+}
