@@ -44,28 +44,28 @@ const Experience = ({ experience }: propsType) => {
                     sizes='600px'
                 />
             </div>
-            <div>
-                <h3>{jobTitle}</h3>
-                <h3>{company}</h3>
-                <div>
+            <div className={styles.titleContainer}>
+                <h3 className={styles.title}>{jobTitle}</h3>
+                <h3 className={styles.company}>{company}</h3>
+                <div className={styles.dates}>
                     <p>
-                        <time>{startDateStr}</time>
+                        <time className={styles.date}>{startDateStr}</time>
                         <span> à </span>
-                        <time>{endDateStr}</time>
+                        <time className={styles.date}>{endDateStr}</time>
                     </p>
                 </div>
             </div>
-            <div>
+            <div className={styles.skills}>
                 {skills.map((skill, i) => {
                     return (
-                        <div key={i}>
+                        <div key={i} className={styles.skill}>
                             <Skill skill={skill} maxSize={60} />
                         </div>
                     );
                 })}
             </div>
 
-            <div>
+            <div className={styles.description}>
                 <PortableText value={description} />
             </div>
         </div>
