@@ -46,7 +46,6 @@
 .company {
     font-size: max(20px, 3vmin);
     text-align: center;
-    color: var(--tertiary);
 }
 
 .dates {
@@ -76,7 +75,6 @@
     width: 100%;
     font-size: 16px;
     text-align: justify;
-    color: var(--foreground);
 }
 
 .description p {
