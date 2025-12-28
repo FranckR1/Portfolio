@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../styles/Experiences.module.css';
 import Experience from './elements/Experience';
 
 import type { experienceType } from '../types/experienceType';
@@ -10,12 +11,12 @@ type propsType = {
 const Experiences = ({ experiences }: propsType) => {
 
     return (
-        <div>
+        <div className={styles.container}>
             <h2>Expériences</h2>
-            <div>
+            <div className={styles.experiences}>
                 {experiences.map((experience, i) => {
                     return (
-                        <section key={i}>
+                        <section key={i} className={styles.section}>
                             <Experience experience={experience} />
                         </section>)
                 })}
