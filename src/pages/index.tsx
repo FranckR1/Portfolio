@@ -8,6 +8,7 @@ import Skills from '../components/Skill';
 import NavBar from '../components/NavBar';
 import Profile from '../components/Profile';
 import AboutMe from '../components/AboutMe';
+import Experiences from '../components/Experience';
 
 import { fetchSocials } from '../pages/api/fetchSocials';
 import { fetchSkills } from '../pages/api/fetchSkills';
@@ -63,6 +64,9 @@ export default function Home({ skills, socials, profile, experiences }: typeProp
                 </section>
                 <section ref={ref => handleSetRefs("A propos", ref)} className={styles.section}>
                     <AboutMe description={profile.description} pictureAboutMe={profile.pictureAboutMe}/>
+                </section>
+                <section ref={ref => handleSetRefs("Expériences", ref)} className={styles.section}>
+                    <Experiences experiences={experiences} />
                 </section>
                 <section ref={ref => handleSetRefs("Compétences", ref)} className={styles.section}>
                     <Skills skills={skills} />
