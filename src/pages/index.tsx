@@ -14,21 +14,24 @@ import { fetchSocials } from '../pages/api/fetchSocials';
 import { fetchSkills } from '../pages/api/fetchSkills';
 import { fetchProfile } from './api/fetchProfile';
 import { fetchExperience } from './api/fetchExperiences';
+import { fetchProjects } from '../pages/api/fetchProjects';
 
 import type { skillType } from '../types/skillType';
 import type { socialType } from '../types/socialType';
 import type { profileType } from '../types/profileType';
 import type { experienceType } from '../types/experienceType';
 import type { refName, refType } from '../types/refType';
+import type { projectType } from '../types/projectType';
 
 type typeProps = {
     skills: skillType[];
     socials: socialType[];
     profile: profileType;
     experiences: experienceType[];
+    projects: projectType[];
 }
 
-export default function Home({ skills, socials, profile, experiences }: typeProps) {
+export default function Home({ skills, socials, profile, experiences, projects }: typeProps) {
 
     const [refMe, setRefMe] = useState<HTMLElement | null>(null);
     const [refs, setRefs] = useState<refType>({
@@ -85,18 +88,21 @@ export const getStaticProps: GetStaticProps<typeProps> = async () => {
   const socialsPromise: Promise<socialType[]> = fetchSocials();
   const profilePromise: Promise<profileType> = fetchProfile();
   const experiencePromise: Promise<experienceType[]> = fetchExperience();
+  const projectPromise: Promise<projectType[]> = fetchProjects();
 
   let skills: skillType[];
   let socials: socialType[];
   let profile: profileType;
   let experiences: experienceType[];
+  let projects: projectType[];
 
   [
     skills, 
     socials,
     profile,
     experiences,
-  ] = await Promise.all([skillsPromise, socialsPromise, profilePromise, experiencePromise]);
+    projects,
+  ] = await Promise.all([skillsPromise, socialsPromise, profilePromise, experiencePromise, projectPromise]);
 
   return {
     props: {
@@ -104,6 +110,7 @@ export const getStaticProps: GetStaticProps<typeProps> = async () => {
       socials,
       profile,
       experiences,
+      projects,
     },
   }
 };
