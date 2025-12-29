@@ -1,8 +1,27 @@
 import React from 'react';
 
-const Projects = () => {
+import type { projectType } from '../types/projectType';
+
+import Project from './elements/Project';
+
+type propsType = {
+    projects: projectType[];
+}
+
+const Projects = ({ projects }: propsType) => {
     return (
-        <h1>Projets component</h1>
+        <div>
+            <h2>Projets</h2>
+            <div>
+                {projects.map((project, i) => {
+                    return (
+                        <section key={i}>
+                            <Project project={project}/>
+                        </section>
+                    )
+                })}
+            </div>
+        </div>
     )
 }
 
