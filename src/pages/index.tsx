@@ -13,8 +13,8 @@ import Projects from '../components/Projects';
 
 import { fetchSocials } from '../pages/api/fetchSocials';
 import { fetchSkills } from '../pages/api/fetchSkills';
-import { fetchProfile } from './api/fetchProfile';
-import { fetchExperience } from './api/fetchExperiences';
+import { fetchProfile } from '../pages/api/fetchProfile';
+import { fetchExperience } from '../pages/api/fetchExperiences';
 import { fetchProjects } from '../pages/api/fetchProjects';
 
 import type { skillType } from '../types/skillType';
