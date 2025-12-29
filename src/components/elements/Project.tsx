@@ -1,8 +1,23 @@
 import React from 'react';
 
-const Project = () => {
+import type { projectType } from '../../types/projectType';
+
+type propsType = {
+    project: projectType;
+}
+
+const Project = ({ project }: propsType) => {
+
+    const { 
+        projectTitle,
+    } = project;
+
     return (
-        <h1>Projets</h1>
+        <div>
+            <div>
+                <h3>{projectTitle}</h3>
+            </div>
+        </div>
     )
 }
 
