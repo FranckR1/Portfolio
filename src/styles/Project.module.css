@@ -132,3 +132,21 @@
     height: 88%;
 }   
 }
+
+@media screen and (max-width: 590px) {
+    .image {
+    height: 75%;
+}   
+}
+
+@media screen and (max-width: 490px) {
+    .image {
+    height: 60%;
+}   
+}
+
+@media screen and (max-width: 390px) {
+    .image {
+    height: 47%;
+}   
+}
