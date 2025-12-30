@@ -12,10 +12,10 @@ const Projects = ({ projects }: propsType) => {
     return (
         <div className={styles.container}>
             <h2>Projets</h2>
-            <div>
+            <div className={styles.projects}>
                 {projects.map((project, i) => {
                     return (
-                        <section key={i}>
+                        <section key={i} className={styles.section}>
                             <Project project={project}/>
                         </section>
                     )
