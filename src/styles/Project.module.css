@@ -94,3 +94,17 @@
     width: 50px;
     height: 50px;
 }
+
+.description {
+    width: 100%;
+    font-size: 16px;
+    text-align: justify;
+}
+
+.description p {
+    margin-top: 1rem;
+}
+
+.description li {
+    margin-left: 1rem;
+}

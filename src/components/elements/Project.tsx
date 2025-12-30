@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from '../../styles/Project.module.css';
 import Skill from './Skill';
+import { PortableText } from 'next-sanity';
 import type { projectType } from '../../types/projectType';
 
 type propsType = {
@@ -17,6 +18,7 @@ const Project = ({ project }: propsType) => {
         mainImage,
         images,
         skills,
+        description,
     } = project;
 
     const imgContainerHeight = 350;
@@ -60,6 +62,7 @@ const Project = ({ project }: propsType) => {
                         )
                     })}
                 </div>
+
                 <div className={styles.skills}>
                     {skills.map((skill, i) => {
                         return (
@@ -69,6 +72,11 @@ const Project = ({ project }: propsType) => {
                         );
                     })}
                 </div>
+
+                <div className={styles.description}>
+                    <PortableText value={description} />
+                </div>
+
             </div>
         </div>
     )
