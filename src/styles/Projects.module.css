@@ -19,11 +19,11 @@
 
 .projects::-webkit-scrollbar {
   height: 16px;
-  background: #122238;
+  background: var(--scrollbar);
 }
 
 .projects::-webkit-scrollbar-thumb {
-  background: #00ccff;
+  background: var(--scrollbar-thumb);
 }
 
 .section {
