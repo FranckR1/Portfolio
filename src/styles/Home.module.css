@@ -29,16 +29,16 @@
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scrollbar-width: auto;
-  scrollbar-color: #00ccff #122238;
+  scrollbar-color: var(--scrollbar-color);
 }
 
 .main::-webkit-scrollbar {
   width: 16px;
-  background: #122238;
+  background: var(--scrollbar);
 }
 
 .main::-webkit-scrollbar-thumb {
-  background: #00ccff;
+  background: var(--scrollbar-thumb);
 }
 
 @media screen and (max-width: 600px) {

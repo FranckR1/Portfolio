@@ -57,7 +57,7 @@
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scrollbar-width: thin;
-    scrollbar-color: #00ccff #122238;
+    scrollbar-color: var(--scrollbar-color);
 }
 
 .imageContainer {
