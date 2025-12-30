@@ -19,6 +19,7 @@ const Project = ({ project }: propsType) => {
         images,
         skills,
         description,
+        githubLinks,
     } = project;
 
     const imgContainerHeight = 350;
@@ -77,6 +78,22 @@ const Project = ({ project }: propsType) => {
                     <PortableText value={description} />
                 </div>
 
+                {githubLinks[0] && <div className={styles.linksContainer}>
+                    <Image
+                        style={{ objectFit: "contain" }}
+                        src={'/github.png'}
+                        alt="Logo github"
+                        width={50}
+                        height={50}
+                    />
+                    <div className={styles.links}>
+                        {githubLinks.map((link, i) => {
+                            return (
+                                <a key={i} href={link.url} className={styles.link} target='_blank'>{link.name}</a>
+                            );
+                        })}
+                    </div>
+                </div>}
             </div>
         </div>
     )
