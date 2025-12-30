@@ -16,6 +16,8 @@ const Project = ({ project }: propsType) => {
         images,
     } = project;
 
+    const imgContainerHeight = 350;
+    
     const [ dateString, setDateString ] = useState('');
 
     useEffect(() => {
@@ -30,8 +32,9 @@ const Project = ({ project }: propsType) => {
             </div>
             <div className={styles.content}>
                 <div className={styles.slider}>
-                    <div className={styles.imageContainer}>
+                    <div className={styles.imageContainer} style={{ width: imgContainerHeight * mainImage.aspect }}>
                         <Image
+                            className={styles.image}
                             style={{ objectFit: "contain" }}
                             src={mainImage.url}
                             alt={mainImage.alt || 'Image'}
@@ -41,9 +44,9 @@ const Project = ({ project }: propsType) => {
                     </div>
                     {images.map((image, i) => {
                         return (
-                            <div key={i}>
+                            <div key={i} className={styles.imageContainer} style={{ width: imgContainerHeight * mainImage.aspect }}>
                                 <Image
-                                    className={styles.imageContainer}
+                                    className={styles.image}
                                     style={{ objectFit: "contain" }}
                                     src={image.url}
                                     alt={image.alt || 'Image'}
