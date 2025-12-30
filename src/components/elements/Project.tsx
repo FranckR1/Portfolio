@@ -13,6 +13,7 @@ const Project = ({ project }: propsType) => {
     const { 
         projectTitle,
         date,
+        onProgress,
         mainImage,
         images,
         skills,
@@ -23,14 +24,14 @@ const Project = ({ project }: propsType) => {
     const [ dateString, setDateString ] = useState('');
 
     useEffect(() => {
-        !onprogress && setDateString(Intl.DateTimeFormat(undefined, { month: 'long', year: 'numeric' }).format(new Date(date)));   
-    }, [onprogress, date]);
+        !onProgress && setDateString(Intl.DateTimeFormat(undefined, { month: 'long', year: 'numeric' }).format(new Date(date)));   
+    }, [onProgress, date]);
 
     return (
         <div className={styles.container}>
             <div className={styles.titleContainer}>
                 <h3 className={styles.title}>{projectTitle}</h3>
-                {!onprogress && <time className={styles.date}>Fini en {dateString}</time>}
+                {!onProgress && <time className={styles.date}>Fini en {dateString}</time>}
             </div>
             <div className={styles.content}>
                 <div className={styles.slider}>
