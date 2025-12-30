@@ -104,3 +104,49 @@
 .description li {
     margin-left: 1rem;
 }
+
+.linksContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 5px;
+    background-color: var(--scrollbar-thumb);
+    border-radius: 5px;
+}
+
+.links {
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+@media screen and (max-width: 690px) {
+    .image {
+    height: 88%;
+}   
+}
+
+@media screen and (max-width: 590px) {
+    .image {
+    height: 75%;
+}   
+}
+
+@media screen and (max-width: 490px) {
+    .image {
+    height: 60%;
+}   
+}
+
+@media screen and (max-width: 390px) {
+    .image {
+    height: 47%;
+}   
+}
