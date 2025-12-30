@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import styles from '../../styles/Project.module.css';
 import type { projectType } from '../../types/projectType';
 
 type propsType = {
@@ -15,13 +16,13 @@ const Project = ({ project }: propsType) => {
     } = project;
 
     return (
-        <div>
-            <div>
-                <h3>{projectTitle}</h3>
+        <div className={styles.container}>
+            <div className={styles.titleContainer}>
+                <h3 className={styles.title}>{projectTitle}</h3>
             </div>
-            <div>
-                <div>
-                    <div>
+            <div className={styles.content}>
+                <div className={styles.slider}>
+                    <div className={styles.imageContainer}>
                         <Image
                             style={{ objectFit: "contain" }}
                             src={mainImage.url}
@@ -34,6 +35,7 @@ const Project = ({ project }: propsType) => {
                         return (
                             <div key={i}>
                                 <Image
+                                    className={styles.imageContainer}
                                     style={{ objectFit: "contain" }}
                                     src={image.url}
                                     alt={image.alt || 'Image'}
