@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from '../../styles/Project.module.css';
+import Skill from './Skill';
 import type { projectType } from '../../types/projectType';
 
 type propsType = {
@@ -14,6 +15,7 @@ const Project = ({ project }: propsType) => {
         date,
         mainImage,
         images,
+        skills,
     } = project;
 
     const imgContainerHeight = 350;
@@ -28,7 +30,7 @@ const Project = ({ project }: propsType) => {
         <div className={styles.container}>
             <div className={styles.titleContainer}>
                 <h3 className={styles.title}>{projectTitle}</h3>
-                {!onprogress && <time>Fini en {dateString}</time>}
+                {!onprogress && <time className={styles.date}>Fini en {dateString}</time>}
             </div>
             <div className={styles.content}>
                 <div className={styles.slider}>
@@ -55,6 +57,15 @@ const Project = ({ project }: propsType) => {
                                 />
                             </div>
                         )
+                    })}
+                </div>
+                <div className={styles.skills}>
+                    {skills.map((skill, i) => {
+                        return (
+                            <div key={i} className={styles.skill}>
+                                <Skill skill={skill} maxSize={50} />
+                            </div>
+                        );
                     })}
                 </div>
             </div>
