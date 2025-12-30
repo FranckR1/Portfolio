@@ -39,7 +39,7 @@ const Experience = ({ experience }: propsType) => {
                     className={styles.image}
                     style={{ objectFit: "contain" }}
                     src={logo.url}
-                    alt={logo.alt}
+                    alt={logo.alt || 'Image'}
                     fill
                     sizes='600px'
                 />
